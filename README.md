@@ -13,3 +13,17 @@ roleMicro    用于测试rpc调用后台svc的role-service的客户端client，�
 RoleApi      用于测试rpc调用后台svc的role-service的客户端client
 ~~~
 前后端分离，此为后端服务micro
+
+~~~
+使用：
+自己启动etcd、mysql、redis
+
+go run role-service/main.go
+注册etcd之后
+
+启动客户端roleMicro or roleApi中的，这两个客户端用来测试rpc调用没有写注册，
+命令如下：
+go run roleMicro/main.go --registry=etcd --registry-address=<etcd host>
+
+curl xxx/role/xx api接口,传参测试用
+~~~
